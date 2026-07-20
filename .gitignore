@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+models/*.bin
+models/*.safetensors
+.env
+data/raw/
+data/processed/
+prompt_injection_detector.egg-info
+tests/fixtures/malicious_pdfs

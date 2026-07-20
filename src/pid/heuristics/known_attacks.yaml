@@ -1,0 +1,29 @@
+patterns:
+  - id: override_instructions
+    category: instruction_override
+    weight: 0.8
+    regex:
+      - "(?i)ignore\\s+(all\\s+)?(the\\s+)?previous\\s+instructions"
+      - "(?i)disregard\\s+(the\\s+)?(above|previous)"
+      - "(?i)esque[çc]a\\s+(tudo\\s+)?(o\\s+que\\s+)?(foi\\s+)?dito"
+
+  - id: role_hijack
+    category: persona_injection
+    weight: 0.7
+    regex:
+      - "(?i)you\\s+are\\s+now\\s+"
+      - "(?i)^\\s*system\\s*:"
+      - "(?i)act\\s+as\\s+(a|an)\\s+"
+
+  - id: prompt_extraction
+    category: exfiltration
+    weight: 0.6
+    regex:
+      - "(?i)reveal\\s+(your\\s+)?system\\s+prompt"
+      - "(?i)repeat\\s+(the\\s+)?(instructions|prompt)\\s+above"
+
+  - id: suspicious_encoding
+    category: obfuscation
+    weight: 0.4
+    regex:
+      - "[A-Za-z0-9+/]{40,}={0,2}"
