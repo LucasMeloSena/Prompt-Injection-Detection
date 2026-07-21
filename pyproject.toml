@@ -9,6 +9,11 @@ dependencies = [
     "pydantic",
     "pymupdf",
     "pytest",
+    "torch",
+    "transformers",
+    "datasets",
+    "accelerate",
+    "scikit-learn",
 ]
 
 [build-system]

@@ -22,13 +22,13 @@ def _to_response(result) -> ScanResponse:
       }
       for m in result.heuristic.matches
     ],
-    )
+    classifier_scores=result.classifier_scores,
+  )
 
 @router.post("/scan/text", response_model=ScanResponse)
 def scan_text(payload: TextScanRequest):
   result = detect_from_text(payload.text)
   return _to_response(result)
-
 
 @router.post("/scan/pdf", response_model=ScanResponse)
 def scan_pdf(file: UploadFile = File(...)):

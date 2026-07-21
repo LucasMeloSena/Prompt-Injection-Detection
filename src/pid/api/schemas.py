@@ -8,3 +8,4 @@ class ScanResponse(BaseModel):
   score: float
   stage_reached: str
   matches: list[dict]
+  classifier_scores: dict | None = None
