@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer
 
-MODEL_NAME = "models/pid-classifier-v1"
+MODEL_NAME = "lucasena/pid-classifier-v1"
 
 _tokenizer = None
 

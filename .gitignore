@@ -1,7 +1,7 @@
 .venv/
 __pycache__/
 *.pyc
-models/
+models/pid-classifier-v1
 .env
 data/
 prompt_injection_detector.egg-info
