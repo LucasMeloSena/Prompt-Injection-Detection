@@ -52,4 +52,9 @@ curl -X POST http://127.0.0.1:8000/scan/pdf \\
 
 ## Modelo
 
-O classificador é hospedado no Hugging Face Hub.
+#### Métricas do conjunto de teste:
+| Loss  | Accuracy | Precision | Recall | F1
+|------:|------:|------:| -----:|-----:|
+| 0.22  | 0.92  | 0.90  | 0.95  | 0.92
+
+O classificador foi hospedado no Hugging Face.
