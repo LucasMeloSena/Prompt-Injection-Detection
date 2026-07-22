@@ -21,6 +21,8 @@ dependencies = [
     "torch",
     "transformers",
     "uvicorn[standard]",
+    "pytest",
+    "pytest-cov",
 ]
 
 [build-system]
