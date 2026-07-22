@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from pid.api.routes import router
+from pid.api.routers import router
+from pid.db.connection import init_db
 
 app = FastAPI(
   title="Prompt Injection Detector",
@@ -9,6 +10,10 @@ app = FastAPI(
 )
 
 app.include_router(router)
+
+@app.on_event("startup")
+def startup() -> None:
+  init_db()
 
 @app.get("/health")
 def health():

@@ -4,16 +4,23 @@ version = "1.0.0"
 description = "Prompt Injection Detector"
 requires-python = ">=3.11"
 dependencies = [
+    "datasets",
     "fastapi",
-    "uvicorn[standard]",
-    "pydantic",
+    "numpy",
+    "passlib[argon2]",
+    "peft",
+    "psycopg2",
+    "pydantic[email]",
     "pymupdf",
     "pytest",
+    "python-dotenv",
+    "python-jose[cryptography]",
+    "python-multipart",
+    "scikit-learn",
+    "sqlalchemy",
     "torch",
     "transformers",
-    "datasets",
-    "accelerate",
-    "scikit-learn",
+    "uvicorn[standard]",
 ]
 
 [build-system]
