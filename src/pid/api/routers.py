@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, File, UploadFile
+from fastapi.security import OAuth2PasswordRequestForm
 
 from pid.api.dependencies import get_current_user
 from pid.api.schemas import CreateUserRequest, ScanResponse, TextScanRequest
@@ -7,8 +8,8 @@ from pid.api.services import AuthService, ScanService
 router = APIRouter()
 
 @router.post("/login")
-def login(form_data: dict):
-  return AuthService.login(form_data["username"], form_data["password"])
+def login(form_data: OAuth2PasswordRequestForm = Depends()):
+  return AuthService.login(form_data.username, form_data.password)
 
 @router.post("/user", status_code=201)
 def create_new_user(payload: CreateUserRequest):

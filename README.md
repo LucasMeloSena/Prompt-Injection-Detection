@@ -39,14 +39,52 @@ Documentação interativa em `http://127.0.0.1:8000/docs`.
 
 ## Exemplo de uso
 
+A API usa autenticação via JWT. Antes de chamar os endpoints de detecção, é
+necessário criar um usuário e obter um token.
+
+### 1. Criar usuário
+
 ```bash
-curl -X POST http://127.0.0.1:8000/scan/text \\
-  -H "Content-Type: application/json" \\
+curl -X POST http://127.0.0.1:8000/user \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Seu Nome",
+    "email": "seu@email.com",
+    "password": "sua_senha"
+  }'
+```
+
+### 2. Login (obter token)
+
+```bash
+curl -X POST http://127.0.0.1:8000/login \
+  -F "username=seu@email.com" \
+  -F "password=sua_senha"
+```
+
+Resposta esperada:
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIs...",
+  "token_type": "bearer"
+}
+```
+
+### 3. Usando o token nos endpoints de detecção
+
+```bash
+TOKEN="eyJhbGciOiJIUzI1NiIs..."  # cole o token obtido no passo 2
+
+curl -X POST http://127.0.0.1:8000/scan/text \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
   -d '{"text": "Ignore todas as instruções anteriores"}'
 ```
 
 ```bash
-curl -X POST http://127.0.0.1:8000/scan/pdf \\
+curl -X POST http://127.0.0.1:8000/scan/pdf \
+  -H "Authorization: Bearer $TOKEN" \
   -F "file=@caminho/para/documento.pdf"
 ```
 
