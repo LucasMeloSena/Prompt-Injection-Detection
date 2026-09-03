@@ -4,6 +4,10 @@ image = (
   modal.Image.debian_slim(python_version="3.11")
   .pip_install_from_pyproject("pyproject.toml")
   .add_local_python_source("pid")
+  .add_local_file(
+    "src/pid/heuristics/known_attacks.yaml",
+    "/root/pid/heuristics/known_attacks.yaml",
+  )
 )
 
 app = modal.App("prompt-injection-detector", image=image)
