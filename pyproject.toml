@@ -9,7 +9,7 @@ dependencies = [
     "numpy",
     "passlib[argon2]",
     "peft",
-    "psycopg2",
+    "psycopg2-binary",
     "pydantic[email]",
     "pymupdf",
     "pytest",
