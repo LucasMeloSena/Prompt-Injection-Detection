@@ -12,7 +12,6 @@ dependencies = [
     "psycopg2-binary",
     "pydantic[email]",
     "pymupdf",
-    "pytest",
     "python-dotenv",
     "python-jose[cryptography]",
     "python-multipart",
@@ -32,9 +31,5 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.poetry]
-name = "prompt-injection-detector"
-version = "1.0.0"
-packages = [
-    { include = "pid", from = "src" }
-]
+[tool.setuptools.package-data]
+pid = ["heuristics/*.yaml"]
