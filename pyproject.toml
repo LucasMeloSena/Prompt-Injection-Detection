@@ -1,6 +1,7 @@
 [project]
 name = "prompt-injection-detector"
 version = "1.0.0"
+package-mode = false
 description = "Prompt Injection Detector"
 requires-python = ">=3.11"
 dependencies = [
