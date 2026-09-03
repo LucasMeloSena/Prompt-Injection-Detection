@@ -33,4 +33,8 @@ build-backend = "setuptools.build_meta"
 where = ["src"]
 
 [tool.poetry]
-package-mode = false
+name = "prompt-injection-detector"
+version = "1.0.0"
+packages = [
+    { include = "pid", from = "src" }
+]
