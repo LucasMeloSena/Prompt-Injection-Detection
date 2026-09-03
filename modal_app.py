@@ -8,11 +8,10 @@ app = modal.App("prompt-injection-detector", image=image)
 
 @app.function(
     image=image, 
-    keep_warm=1,
+    min_containers=1,
     gpu="any"
 )
 @modal.asgi_app()
 def fastapi_app():
   from src.pid.api.main import app
-    
   return app
